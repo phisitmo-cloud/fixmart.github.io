@@ -230,7 +230,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
   </a>
   <!--
     เปลี่ยนเบอร์โทรเป็นเบอร์จริง เช่น:
-    href="tel:0812345678"
+    href="tel:0816512835"
   -->
   <a class="float-btn phone-float" href="tel:081-651-2835" title="โทรหา Fixmart">
     <span class="float-btn-label">โทรเลย</span>
@@ -405,15 +405,9 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
     <div class="sidebar-card">
       <div class="sidebar-card-header">Facebook Page</div>
       <div class="sidebar-card-body">
-        <!--
-          วิธีใส่ Facebook Page Plugin จริง:
-          1. ไปที่ developers.facebook.com/docs/plugins/page-plugin
-          2. กรอก URL Facebook Page แล้ว Generate Code
-          3. แทนที่ div.fb-placeholder ด้วยโค้ดที่ได้
-        -->
         <div class="fb-placeholder">
           <div class="fb-icon">f</div>
-          <p>ใส่ Facebook Page Plugin<br>หรือลิงก์ไปยังหน้า Facebook</p>
+          <p>ติดตามข่าวสาร สินค้าใหม่<br>และโปรโมชันบน Facebook</p>
         </div>
         <a href="https://www.facebook.com/profile.php?id=100088500606881" target="_blank" style="display:block;margin-top:.75rem;background:#1877f2;color:#fff;text-align:center;padding:.6rem;border-radius:3px;font-size:.82rem;font-weight:600;text-decoration:none;letter-spacing:.04em">
           กดถูกใจหน้าเพจ
@@ -431,13 +425,17 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
           - LINE OA: แก้ href="https://line.me/ti/p/@..."
           - Facebook: แก้ href="https://www.facebook.com/..."
         -->
-        <a class="contact-link" href="tel:081-651-2835">
+        <a class="contact-link" href="tel:0816512835">
           <div class="contact-icon ci-phone">TEL</div>
           <div class="contact-info">
-            <div class="contact-label">โทรศัพท์</div>
-            <div class="contact-value">081-651-2835</div>
+            <div class="contact-label">โทรศัพท์ — กดเพื่อโทร</div>
+            <div class="contact-value" style="font-size:1.05rem;letter-spacing:.05em">081-651-2835</div>
           </div>
         </a>
+        <div style="background:var(--dk2);border-radius:3px;padding:.6rem 1rem;margin:.3rem .5rem 0;display:flex;align-items:center;justify-content:space-between;gap:.5rem">
+          <div style="font-size:.75rem;color:var(--dim)">คัดลอกเบอร์</div>
+          <div style="font-family:monospace;font-size:.92rem;color:var(--y);font-weight:600;cursor:pointer;padding:.2rem .5rem;background:var(--dk);border-radius:3px;border:1px solid var(--bdr)" onclick="navigator.clipboard.writeText('0816512835');this.textContent='คัดลอกแล้ว!';setTimeout(()=>this.textContent='081-651-2835',2000)">081-651-2835</div>
+        </div>
         <a class="contact-link" href="https://line.me/ti/p/@524ciwrs" target="_blank">
           <div class="contact-icon ci-line">LINE</div>
           <div class="contact-info">
