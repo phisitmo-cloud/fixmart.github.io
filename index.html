@@ -6,7 +6,7 @@
 <title>Fixmart — น็อต สกรู ฟาสเทนเนอร์ครบวงจร</title>
 <meta name="description" content="Fixmart จำหน่ายน็อต สกรู ฟาสเทนเนอร์คุณภาพสูง แบ่งตามการใช้งาน เครื่องจักรกลเกษตร โรงงาน โครงสร้างโซล่าเซล ครบทุกมาตรฐาน DIN ISO JIS">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Fixmart","description":"จำหน่ายน็อต สกรู ฟาสเทนเนอร์คุณภาพสูง ครบทุกมาตรฐาน DIN ISO JIS","url":"https://phisitmo-cloud.github.io/fixmart.github.io/","telephone":"0XX-XXX-XXXX","sameAs":["https://www.facebook.com/YOUR_PAGE","https://line.me/ti/p/YOUR_LINE_OA"]}
+{"@context":"https://schema.org","@type":"Organization","name":"Fixmart","description":"จำหน่ายน็อต สกรู ฟาสเทนเนอร์คุณภาพสูง ครบทุกมาตรฐาน DIN ISO JIS","url":"https://phisitmo-cloud.github.io/fixmart.github.io/","telephone":"081-651-2835","sameAs":["https://www.facebook.com/profile.php?id=100088500606881","https://line.me/ti/p/@524ciwrs"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,15 +35,15 @@ nav{position:sticky;top:0;z-index:100;background:var(--blk);border-bottom:1px so
 
 /* ── VIDEO BANNER ── */
 .video-section{background:var(--blk);border-bottom:3px solid var(--y);position:relative;overflow:hidden}
-.video-wrapper{position:relative;width:100%;padding-top:42%;background:#000}
+.video-wrapper{position:relative;width:100%;height:440px;background:#000}
 .video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-/* Slideshow fallback เมื่อไม่มี VDO */
-.slideshow{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;background:var(--dk)}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem}
+.slideshow{position:absolute;inset:0;overflow:hidden;background:var(--dk)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;padding:2rem}
 .slide.active{opacity:1}
-.slide-label{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.4rem,4vw,3rem);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#fff;text-align:center;padding:0 1rem}
+.slide-vdo-tag{background:rgba(245,196,0,.12);border:1px solid rgba(245,196,0,.25);border-radius:2px;padding:.3rem 1rem;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,196,0,.6);margin-bottom:.5rem}
+.slide-label{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:#fff;text-align:center;line-height:1.0}
 .slide-label span{color:var(--y)}
-.slide-sub{font-size:clamp(.75rem,2vw,1rem);color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center}
+.slide-sub{font-size:clamp(.8rem,1.8vw,1rem);color:var(--muted);letter-spacing:.1em;text-transform:uppercase;text-align:center;margin-top:.25rem}
 .slide-stripe{position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(245,196,0,.018) 40px,rgba(245,196,0,.018) 41px);pointer-events:none}
 /* ถ้ามีรูปสินค้าแล้ว ใส่เป็น background-image แทน */
 .slide.s1{background:linear-gradient(135deg,#1a1510 0%,#2a2010 100%)}
@@ -52,7 +52,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--blk);border-bottom:1px so
 .slide-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
 .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .3s;cursor:pointer}
 .dot.active{background:var(--y)}
-.video-badge{position:absolute;top:14px;left:14px;background:var(--y);color:var(--blk);font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:2px;z-index:3}
+.video-badge{position:absolute;top:20px;left:50%;transform:translateX(-50%);background:transparent;border:1px solid rgba(245,196,0,.4);color:var(--y);font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.35rem 1.4rem;border-radius:2px;z-index:3;white-space:nowrap}
 
 /* ── TRUST BAR ── */
 .tbar{background:var(--y);padding:.7rem 2rem;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
@@ -122,10 +122,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--blk);border-bottom:1px so
 .structure .group-info h2{color:#4ecb80}
 .group-info p{font-size:.78rem;color:var(--muted)}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--bdrdim);border:1px solid var(--bdrdim);border-top:none}
-.pcard{background:var(--dk);transition:background .2s;position:relative;overflow:hidden}
+.pcard{background:var(--dk);transition:background .2s;position:relative;overflow:hidden;cursor:pointer;text-decoration:none;display:block}
 .pcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--y);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .pcard:hover{background:var(--dk2)}
 .pcard:hover::after{transform:scaleX(1)}
+.pcard-dl-badge{position:absolute;top:8px;right:8px;background:var(--y);color:var(--blk);font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2px;opacity:0;transition:opacity .2s;z-index:2}
+.pcard:hover .pcard-dl-badge{opacity:1}
+.pcard-dl-badge-soon{background:var(--dk3);color:var(--dim);border:1px solid var(--bdrdim)}
 .pimg-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--dk2);position:relative}
 .pimg-wrap img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .3s,transform .4s}
 .pcard:hover .pimg-wrap img{opacity:1;transform:scale(1.04)}
@@ -213,7 +216,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
     เปลี่ยน href เป็น URL Facebook Page จริง เช่น:
     href="https://www.facebook.com/fixmartthailand"
   -->
-  <a class="float-btn fb-float" href="https://www.facebook.com/YOUR_PAGE" target="_blank" title="Facebook Fixmart">
+  <a class="float-btn fb-float" href="https://www.facebook.com/profile.php?id=100088500606881" target="_blank" title="Facebook Fixmart">
     <span class="float-btn-label">Facebook</span>
     <span class="float-btn-icon">f</span>
   </a>
@@ -221,7 +224,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
     เปลี่ยน href เป็น LINE OA ของคุณ เช่น:
     href="https://line.me/ti/p/@fixmart"
   -->
-  <a class="float-btn line-float" href="https://line.me/ti/p/YOUR_LINE_OA" target="_blank" title="LINE Fixmart">
+  <a class="float-btn line-float" href="https://line.me/ti/p/@524ciwrs" target="_blank" title="LINE Fixmart">
     <span class="float-btn-label">LINE OA</span>
     <span class="float-btn-icon">LINE</span>
   </a>
@@ -229,7 +232,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
     เปลี่ยนเบอร์โทรเป็นเบอร์จริง เช่น:
     href="tel:0812345678"
   -->
-  <a class="float-btn phone-float" href="tel:0XX-XXX-XXXX" title="โทรหา Fixmart">
+  <a class="float-btn phone-float" href="tel:081-651-2835" title="โทรหา Fixmart">
     <span class="float-btn-label">โทรเลย</span>
     <span class="float-btn-icon">TEL</span>
   </a>
@@ -253,7 +256,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
      VIDEO / SLIDESHOW BANNER
      ══════════════════════════════════ -->
 <div class="video-section">
-  <div class="video-badge">Fixmart สินค้า</div>
+  <div class="video-badge">ครบถ้วน · ถูกต้อง · ตรงตามมาตรฐาน</div>
   <div class="video-wrapper">
 
     <!--
@@ -283,19 +286,17 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
       <div class="slide-stripe"></div>
 
       <div class="slide s1 active" id="slide-0">
-        <!--
-          มีรูปสินค้าแล้ว? เพิ่ม style="background-image:url('images/slide1.jpg');background-size:cover;background-position:center"
-        -->
+        <div class="slide-vdo-tag">ใส่วีดีโอสินค้าได้ที่นี่</div>
         <div class="slide-label">น็อต สกรู<br><span>เครื่องจักรกลเกษตร</span></div>
         <div class="slide-sub">DIN 931 · DIN 933 · Flange Bolt · Plow Bolt</div>
       </div>
-
       <div class="slide s2" id="slide-1">
+        <div class="slide-vdo-tag">ใส่วีดีโอสินค้าได้ที่นี่</div>
         <div class="slide-label">ฟาสเทนเนอร์<br><span>โรงงานอุตสาหกรรม</span></div>
         <div class="slide-sub">Socket Head · Stud Bolt · Set Screw · SS304/316</div>
       </div>
-
       <div class="slide s3" id="slide-2">
+        <div class="slide-vdo-tag">ใส่วีดีโอสินค้าได้ที่นี่</div>
         <div class="slide-label">น็อตโครงสร้าง<br><span>และโซล่าเซล</span></div>
         <div class="slide-sub">Anchor Bolt · T-Bolt · High Strength 10.9</div>
       </div>
@@ -344,12 +345,12 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
         </div>
       </div>
       <div class="pgrid">
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตหัวหกเหลี่ยม</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตหัวหกเหลี่ยม 8.8</h3><p>DIN 931/933 · M8–M24 · ชุบสังกะสี HDG</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตแฟลนจ์</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตแฟลนจ์</h3><p>มีแหวนในตัว · ทนแรงสั่น · M6–M20</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป U-Bolt</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>U-Bolt / แคลมป์ท่อ</h3><p>ยึดท่อ โครงเหล็ก ชิ้นส่วนรถเกษตร</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตผานไถ</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตผานไถ Plow Bolt</h3><p>หัวจมเรียบ · ใบไถ ผาน · ทนสึกหรอสูง</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Lock Nut</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>Lock Nut / หัวน็อตกันคลาย</h3><p>ป้องกันคลายจากแรงสั่น · เพลา ล้อ</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปแหวนสปริง</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>แหวนสปริง / แหวนรอง</h3><p>DIN 125 / 127 · M6–M24 · ชุบสังกะสี</p></div></div>
+        <a class="pcard" href="brochures/hex-bolt.pdf" download="Fixmart-HexBolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตหัวหกเหลี่ยม</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตหัวหกเหลี่ยม 8.8</h3><p>DIN 931/933 · M8–M24 · ชุบสังกะสี HDG</p></div></a>
+        <a class="pcard" href="brochures/flange-bolt.pdf" download="Fixmart-FlangeBolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตแฟลนจ์</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตแฟลนจ์</h3><p>มีแหวนในตัว · ทนแรงสั่น · M6–M20</p></div></a>
+        <a class="pcard" href="brochures/u-bolt.pdf" download="Fixmart-UBolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป U-Bolt</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>U-Bolt / แคลมป์ท่อ</h3><p>ยึดท่อ โครงเหล็ก ชิ้นส่วนรถเกษตร</p></div></a>
+        <a class="pcard" href="brochures/plow-bolt.pdf" download="Fixmart-PlowBolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตผานไถ</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตผานไถ Plow Bolt</h3><p>หัวจมเรียบ · ใบไถ ผาน · ทนสึกหรอสูง</p></div></a>
+        <a class="pcard" href="brochures/lock-nut.pdf" download="Fixmart-LockNut.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Lock Nut</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>Lock Nut / หัวน็อตกันคลาย</h3><p>ป้องกันคลายจากแรงสั่น · เพลา ล้อ</p></div></a>
+        <a class="pcard" href="brochures/washer.pdf" download="Fixmart-Washer.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปแหวนสปริง</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>แหวนสปริง / แหวนรอง</h3><p>DIN 125 / 127 · M6–M24 · ชุบสังกะสี</p></div></a>
       </div>
     </div>
 
@@ -363,12 +364,12 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
         </div>
       </div>
       <div class="pgrid">
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตหัวจม</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Socket Head Cap DIN 912</h3><p>M4–M24 · เกรด 12.9 · สแตนเลส 304</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปสตัดโบลท์</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Stud Bolt DIN 976</h3><p>เกลียวสองด้าน · เหล็ก B7 / SS316</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตสแตนเลส</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>น็อตสแตนเลส 304 / 316</h3><p>อุตสาหกรรมอาหาร เคมี ยา</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Set Screw</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>สกรูตั้งศูนย์ Set Screw</h3><p>DIN 913–916 · ยึด Hub เพลา พูลเลย์</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Threaded Insert</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Threaded Insert</h3><p>ฝังเกลียวในพลาสติก อลู · M3–M12</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปหัวน็อต</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>หัวน็อต Hex Nut DIN 934</h3><p>M4–M36 · เหล็ก / SS304 / SS316</p></div></div>
+        <a class="pcard" href="brochures/socket-head.pdf" download="Fixmart-SocketHead.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตหัวจม</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Socket Head Cap DIN 912</h3><p>M4–M24 · เกรด 12.9 · สแตนเลส 304</p></div></a>
+        <a class="pcard" href="brochures/stud-bolt.pdf" download="Fixmart-StudBolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปสตัดโบลท์</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Stud Bolt DIN 976</h3><p>เกลียวสองด้าน · เหล็ก B7 / SS316</p></div></a>
+        <a class="pcard" href="brochures/stainless-bolt.pdf" download="Fixmart-StainlessBolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตสแตนเลส</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>น็อตสแตนเลส 304 / 316</h3><p>อุตสาหกรรมอาหาร เคมี ยา</p></div></a>
+        <a class="pcard" href="brochures/set-screw.pdf" download="Fixmart-SetScrew.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Set Screw</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>สกรูตั้งศูนย์ Set Screw</h3><p>DIN 913–916 · ยึด Hub เพลา พูลเลย์</p></div></a>
+        <a class="pcard" href="brochures/threaded-insert.pdf" download="Fixmart-ThreadedInsert.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Threaded Insert</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Threaded Insert</h3><p>ฝังเกลียวในพลาสติก อลู · M3–M12</p></div></a>
+        <a class="pcard" href="brochures/hex-nut.pdf" download="Fixmart-HexNut.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปหัวน็อต</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>หัวน็อต Hex Nut DIN 934</h3><p>M4–M36 · เหล็ก / SS304 / SS316</p></div></a>
       </div>
     </div>
 
@@ -382,12 +383,12 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
         </div>
       </div>
       <div class="pgrid">
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป T-Bolt Solar</div></div><div class="pinfo"><div class="ptag structure-tag">โซล่าเซล</div><h3>T-Bolt / Mid Clamp</h3><p>ยึดแผงโซล่ากับราง Aluminum Rail</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Anchor Bolt</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>Anchor Bolt / Chemical Anchor</h3><p>ยึดโครงสร้างเข้าคอนกรีต · M10–M30</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อต High Strength</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>น็อต High Strength 10.9</h3><p>ASTM A325 · M16–M30 · ชุด น็อต+นัต+แหวน</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปสกรูหลังคา</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>สกรูหลังคา Roofing Screw</h3><p>พร้อมแหวนยาง · ปลายสว่าน · เมทัลชีท</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Eye Bolt</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>Eye Bolt / Hook Bolt DIN 580</h3><p>ยึดสลิง สายไฟ แขวน · M8–M24</p></div></div>
-        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อต SS316 ชายทะเล</div></div><div class="pinfo"><div class="ptag structure-tag">โซล่าเซล</div><h3>น็อตสแตนเลส 316 ชายทะเล</h3><p>โซล่าฟาร์มชายทะเล · ความชื้นสูง</p></div></div>
+        <a class="pcard" href="brochures/t-bolt-solar.pdf" download="Fixmart-TBoltSolar.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป T-Bolt Solar</div></div><div class="pinfo"><div class="ptag structure-tag">โซล่าเซล</div><h3>T-Bolt / Mid Clamp</h3><p>ยึดแผงโซล่ากับราง Aluminum Rail</p></div></a>
+        <a class="pcard" href="brochures/anchor-bolt.pdf" download="Fixmart-AnchorBolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Anchor Bolt</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>Anchor Bolt / Chemical Anchor</h3><p>ยึดโครงสร้างเข้าคอนกรีต · M10–M30</p></div></a>
+        <a class="pcard" href="brochures/high-strength.pdf" download="Fixmart-HighStrength.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อต High Strength</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>น็อต High Strength 10.9</h3><p>ASTM A325 · M16–M30 · ชุด น็อต+นัต+แหวน</p></div></a>
+        <a class="pcard" href="brochures/roofing-screw.pdf" download="Fixmart-RoofingScrew.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปสกรูหลังคา</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>สกรูหลังคา Roofing Screw</h3><p>พร้อมแหวนยาง · ปลายสว่าน · เมทัลชีท</p></div></a>
+        <a class="pcard" href="brochures/eye-bolt.pdf" download="Fixmart-EyeBolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Eye Bolt</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>Eye Bolt / Hook Bolt DIN 580</h3><p>ยึดสลิง สายไฟ แขวน · M8–M24</p></div></a>
+        <a class="pcard" href="brochures/ss316-bolt.pdf" download="Fixmart-SS316Bolt.pdf"><span class="pcard-dl-badge">โหลดโบรชัวร์</span><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อต SS316 ชายทะเล</div></div><div class="pinfo"><div class="ptag structure-tag">โซล่าเซล</div><h3>น็อตสแตนเลส 316 ชายทะเล</h3><p>โซล่าฟาร์มชายทะเล · ความชื้นสูง</p></div></a>
       </div>
     </div>
 
@@ -414,7 +415,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
           <div class="fb-icon">f</div>
           <p>ใส่ Facebook Page Plugin<br>หรือลิงก์ไปยังหน้า Facebook</p>
         </div>
-        <a href="https://www.facebook.com/YOUR_PAGE" target="_blank" style="display:block;margin-top:.75rem;background:#1877f2;color:#fff;text-align:center;padding:.6rem;border-radius:3px;font-size:.82rem;font-weight:600;text-decoration:none;letter-spacing:.04em">
+        <a href="https://www.facebook.com/profile.php?id=100088500606881" target="_blank" style="display:block;margin-top:.75rem;background:#1877f2;color:#fff;text-align:center;padding:.6rem;border-radius:3px;font-size:.82rem;font-weight:600;text-decoration:none;letter-spacing:.04em">
           กดถูกใจหน้าเพจ
         </a>
       </div>
@@ -430,21 +431,25 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
           - LINE OA: แก้ href="https://line.me/ti/p/@..."
           - Facebook: แก้ href="https://www.facebook.com/..."
         -->
-        <a class="contact-link" href="tel:0XX-XXX-XXXX">
+        <a class="contact-link" href="tel:081-651-2835">
           <div class="contact-icon ci-phone">TEL</div>
           <div class="contact-info">
             <div class="contact-label">โทรศัพท์</div>
-            <div class="contact-value">0XX-XXX-XXXX</div>
+            <div class="contact-value">081-651-2835</div>
           </div>
         </a>
-        <a class="contact-link" href="https://line.me/ti/p/YOUR_LINE_OA" target="_blank">
+        <a class="contact-link" href="https://line.me/ti/p/@524ciwrs" target="_blank">
           <div class="contact-icon ci-line">LINE</div>
           <div class="contact-info">
             <div class="contact-label">LINE OA</div>
             <div class="contact-value">@fixmart</div>
           </div>
         </a>
-        <a class="contact-link" href="https://www.facebook.com/YOUR_PAGE" target="_blank">
+        <div style="margin:.5rem .5rem 0;background:var(--dk2);border-radius:4px;padding:.75rem;text-align:center">
+          <img src="https://qr-official.line.me/gs/M_524ciwrs_GW.png?oat_content=qr" alt="LINE QR Code Fixmart" style="width:100%;max-width:140px;border-radius:4px;display:block;margin:0 auto">
+          <div style="font-size:.7rem;color:var(--dim);margin-top:.45rem;letter-spacing:.06em">สแกน QR เพิ่มเพื่อน LINE OA</div>
+        </div>
+        <a class="contact-link" href="https://www.facebook.com/profile.php?id=100088500606881" target="_blank">
           <div class="contact-icon ci-fb">FB</div>
           <div class="contact-info">
             <div class="contact-label">Facebook</div>
@@ -499,7 +504,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2r
       </div>
     </div>
     <div class="b2bcta">
-      <a href="https://line.me/ti/p/YOUR_LINE_OA" class="btnp" target="_blank">ติดต่อขอใบเสนอราคา</a>
+      <a href="https://line.me/ti/p/@524ciwrs" class="btnp" target="_blank">ติดต่อขอใบเสนอราคา</a>
       <a href="faq.html" class="btno">ดูคำถามที่พบบ่อย</a>
     </div>
   </div>
