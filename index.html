@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fixmart — น็อต สกรู ฟาสเทนเนอร์ครบวงจร</title>
-<meta name="description" content="Fixmart จำหน่ายน็อต สกรู และฟาสเทนเนอร์คุณภาพสูง ครบทุกมาตรฐาน DIN ISO JIS">
+<meta name="description" content="Fixmart จำหน่ายน็อต สกรู ฟาสเทนเนอร์คุณภาพสูง แบ่งตามการใช้งาน เครื่องจักรกลเกษตร โรงงาน โครงสร้างโซล่าเซล ครบทุกมาตรฐาน DIN ISO JIS">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Fixmart","description":"จำหน่ายน็อต สกรู และฟาสเทนเนอร์คุณภาพสูง ครบทุกมาตรฐาน DIN ISO JIS","url":"https://fixmart.github.io"}
+{"@context":"https://schema.org","@type":"Organization","name":"Fixmart","description":"จำหน่ายน็อต สกรู ฟาสเทนเนอร์คุณภาพสูง ครบทุกมาตรฐาน DIN ISO JIS","url":"https://phisitmo-cloud.github.io/fixmart.github.io/","telephone":"0XX-XXX-XXXX","sameAs":["https://www.facebook.com/YOUR_PAGE","https://line.me/ti/p/YOUR_LINE_OA"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,287 +21,457 @@
 html{scroll-behavior:smooth}
 body{font-family:'IBM Plex Sans Thai',sans-serif;background:var(--blk);color:var(--tx);line-height:1.7;overflow-x:hidden}
 
-/* NAV */
+/* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;background:var(--blk);border-bottom:1px solid var(--bdr);padding:0 2rem;height:58px;display:flex;align-items:center;justify-content:space-between}
 .nbrand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
-
-/* =====================================================
-   LOGO: เปลี่ยน src="images/logo.png" เป็นไฟล์ logo จริง
-   ขนาดแนะนำ: 120x40px หรือ 160x50px พื้นหลังโปร่งใส (.png)
-   ถ้ายังไม่มีรูป logo จะแสดงชื่อ FIXMART แทน
-   ===================================================== */
-.nlogo-img{height:36px;width:auto;display:block}
-.nlogo-fallback{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:.04em}
-.nlogo-fallback span{color:var(--y)}
 .nhex{width:32px;height:32px;background:var(--y);clip-path:polygon(50% 0%,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%);display:flex;align-items:center;justify-content:center}
 .nhex::after{content:'';width:13px;height:13px;border-radius:50%;border:3px solid var(--blk)}
-
-.nlinks{display:flex;gap:1.6rem}
+.nbname{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:.04em}
+.nbname span{color:var(--y)}
+.nlinks{display:flex;gap:1.6rem;align-items:center}
 .nlinks a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.04em;transition:color .2s}
 .nlinks a:hover{color:var(--y)}
 .ncta{background:var(--y)!important;color:var(--blk)!important;padding:.38rem 1rem;border-radius:3px;font-weight:700!important}
-.ncta:hover{background:var(--yd)!important}
 
-/* HERO */
-.hero{border-bottom:3px solid var(--y);position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center}
+/* ── VIDEO BANNER ── */
+.video-section{background:var(--blk);border-bottom:3px solid var(--y);position:relative;overflow:hidden}
+.video-wrapper{position:relative;width:100%;padding-top:42%;background:#000}
+.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+/* Slideshow fallback เมื่อไม่มี VDO */
+.slideshow{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;background:var(--dk)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem}
+.slide.active{opacity:1}
+.slide-label{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.4rem,4vw,3rem);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#fff;text-align:center;padding:0 1rem}
+.slide-label span{color:var(--y)}
+.slide-sub{font-size:clamp(.75rem,2vw,1rem);color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center}
+.slide-stripe{position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(245,196,0,.018) 40px,rgba(245,196,0,.018) 41px);pointer-events:none}
+/* ถ้ามีรูปสินค้าแล้ว ใส่เป็น background-image แทน */
+.slide.s1{background:linear-gradient(135deg,#1a1510 0%,#2a2010 100%)}
+.slide.s2{background:linear-gradient(135deg,#0d1a12 0%,#0f2218 100%)}
+.slide.s3{background:linear-gradient(135deg,#0d1220 0%,#0f1830 100%)}
+.slide-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .3s;cursor:pointer}
+.dot.active{background:var(--y)}
+.video-badge{position:absolute;top:14px;left:14px;background:var(--y);color:var(--blk);font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:2px;z-index:3}
 
-/* =====================================================
-   HERO BANNER: เปลี่ยน src="images/hero-banner.jpg" เป็นรูปจริง
-   ขนาดแนะนำ: 1600x640px ขึ้นไป (landscape)
-   รูปจะถูก overlay ด้วยสีดำโปร่งแสง ข้อความยังอ่านได้
-   ===================================================== */
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(17,17,16,.95) 0%,rgba(17,17,16,.7) 60%,rgba(17,17,16,.5) 100%)}
-.hero-stripe{position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(245,196,0,.022) 40px,rgba(245,196,0,.022) 41px);pointer-events:none}
-.hero-content{position:relative;z-index:2;padding:5rem 2rem 4.5rem;max-width:640px;margin:0}
-.eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:var(--ydim);border:1px solid var(--bdr);border-radius:2px;padding:.28rem .9rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--y);margin-bottom:1.4rem}
-.eyebrow::before{content:'';width:6px;height:6px;background:var(--y);border-radius:50%}
-.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.8rem,6vw,4.5rem);line-height:1.0;letter-spacing:.02em;color:#fff;margin-bottom:1.2rem;text-transform:uppercase}
-.hero h1 em{font-style:normal;color:var(--y);display:block}
-.hero p{font-size:1rem;color:var(--muted);max-width:460px;margin:0 0 2.5rem;line-height:1.7}
-.hbtns{display:flex;gap:.8rem;flex-wrap:wrap}
-.btnp{background:var(--y);color:var(--blk);padding:.8rem 2rem;border-radius:3px;font-weight:700;font-size:.9rem;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,transform .15s;border:2px solid var(--y)}
-.btnp:hover{background:var(--yd);border-color:var(--yd);transform:translateY(-1px)}
-.btno{background:transparent;color:var(--tx);padding:.8rem 2rem;border-radius:3px;font-weight:600;font-size:.9rem;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;border:2px solid #3a3a37;transition:border-color .2s,color .2s}
-.btno:hover{border-color:var(--y);color:var(--y)}
-
-/* TRUST BAR */
-.tbar{background:var(--y);padding:.75rem 2rem;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+/* ── TRUST BAR ── */
+.tbar{background:var(--y);padding:.7rem 2rem;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
 .titem{font-size:.75rem;font-weight:700;color:var(--blk);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:.45rem}
 .titem::before{content:'■';font-size:.45rem}
 
-/* PRODUCTS */
-.sec{max-width:960px;margin:0 auto;padding:4rem 1.5rem}
-.shead{display:flex;align-items:baseline;gap:1rem;margin-bottom:2rem;border-bottom:1px solid var(--bdrdim);padding-bottom:1rem}
-.slabel{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
-.slabel span{color:var(--y)}
-.scnt{font-size:.75rem;color:var(--dim);letter-spacing:.08em}
+/* ── LAYOUT WITH SIDEBAR ── */
+.page-body{display:flex;gap:0;max-width:1200px;margin:0 auto;padding:2.5rem 1.5rem}
+.main-content{flex:1;min-width:0}
+.sidebar{width:280px;flex-shrink:0;margin-left:2rem}
 
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--bdrdim);border:1px solid var(--bdrdim)}
+/* ── SIDEBAR ── */
+.sidebar-card{background:var(--dk);border:1px solid var(--bdrdim);border-radius:4px;overflow:hidden;margin-bottom:1rem}
+.sidebar-card-header{background:var(--dk2);padding:.75rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--bdrdim)}
+.sidebar-card-body{padding:1rem}
+
+/* Facebook embed */
+.fb-page-wrap{background:#fff;border-radius:3px;overflow:hidden;min-height:130px;display:flex;align-items:center;justify-content:center}
+.fb-placeholder{background:var(--dk2);border:1px dashed var(--bdrdim);border-radius:3px;padding:1.2rem;text-align:center}
+.fb-placeholder p{font-size:.78rem;color:var(--dim);margin-top:.5rem;line-height:1.5}
+.fb-icon{width:36px;height:36px;background:#1877f2;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;color:#fff}
+
+/* Contact links */
+.contact-link{display:flex;align-items:center;gap:.75rem;padding:.7rem .5rem;border-radius:3px;text-decoration:none;transition:background .2s;margin-bottom:.4rem}
+.contact-link:last-child{margin-bottom:0}
+.contact-link:hover{background:var(--dk2)}
+.contact-icon{width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.85rem;letter-spacing:.02em}
+.ci-phone{background:#2a5a2a;color:#6ee06e}
+.ci-line{background:#005f2b;color:#06c755}
+.ci-fb{background:#1a2d4a;color:#4e8fee}
+.contact-info{flex:1;min-width:0}
+.contact-label{font-size:.7rem;color:var(--dim);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.contact-value{font-size:.88rem;color:var(--tx);font-weight:500;margin-top:.05rem}
+
+/* Business hours */
+.hours-row{display:flex;justify-content:space-between;font-size:.8rem;padding:.35rem 0;border-bottom:1px solid var(--bdrdim)}
+.hours-row:last-child{border-bottom:none}
+.hours-day{color:var(--muted)}
+.hours-time{color:var(--tx);font-weight:500}
+.hours-closed{color:var(--dim)}
+
+/* ── SECTION ── */
+.shead{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;border-bottom:1px solid var(--bdrdim);padding-bottom:.9rem}
+.slabel{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.slabel span{color:var(--y)}
+
+/* GROUP TABS */
+.group-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.gtab{background:var(--dk2);border:1px solid var(--bdrdim);border-radius:3px;padding:.5rem 1rem;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--muted);cursor:pointer;transition:all .2s;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+.gtab:hover{border-color:var(--bdr);color:var(--tx)}
+.gtab.active{background:var(--y);border-color:var(--y);color:var(--blk)}
+
+/* PRODUCT GRID */
+.usecase-group{display:none}
+.usecase-group.active{display:block}
+.group-header{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;margin-bottom:1px}
+.group-header.agri{background:rgba(139,69,0,.15);border:1px solid rgba(139,69,0,.25);border-bottom:2px solid #c46a00;border-radius:3px 3px 0 0}
+.group-header.factory{background:rgba(26,61,107,.15);border:1px solid rgba(26,61,107,.25);border-bottom:2px solid #2a5fa8;border-radius:3px 3px 0 0}
+.group-header.structure{background:rgba(26,107,58,.15);border:1px solid rgba(26,107,58,.25);border-bottom:2px solid #28a05a;border-radius:3px 3px 0 0}
+.group-icon{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;width:42px;height:42px;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.agri .group-icon{background:rgba(139,69,0,.3);color:#f0a830}
+.factory .group-icon{background:rgba(26,61,107,.3);color:#5a9fe0}
+.structure .group-icon{background:rgba(26,107,58,.3);color:#4ecb80}
+.group-info h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:.2rem}
+.agri .group-info h2{color:#f0a830}
+.factory .group-info h2{color:#5a9fe0}
+.structure .group-info h2{color:#4ecb80}
+.group-info p{font-size:.78rem;color:var(--muted)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--bdrdim);border:1px solid var(--bdrdim);border-top:none}
 .pcard{background:var(--dk);transition:background .2s;position:relative;overflow:hidden}
 .pcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--y);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .pcard:hover{background:var(--dk2)}
 .pcard:hover::after{transform:scaleX(1)}
-
-/* =====================================================
-   รูปสินค้า: เปลี่ยน src="images/product-XX.jpg" เป็นรูปจริง
-   ขนาดแนะนำ: 400x300px (4:3) หรือ 600x400px
-   ถ้าไม่มีรูป ให้ลบ tag <img> ออก จะแสดงแค่ข้อความ
-   ===================================================== */
 .pimg-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--dk2);position:relative}
 .pimg-wrap img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .3s,transform .4s}
 .pcard:hover .pimg-wrap img{opacity:1;transform:scale(1.04)}
-.pimg-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.pimg-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:center;padding:.75rem}
+.pinfo{padding:1.1rem}
+.ptag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:2px;margin-bottom:.65rem}
+.ptag.agri-tag{background:#c46a00;color:#fff}
+.ptag.factory-tag{background:#2a5fa8;color:#fff}
+.ptag.structure-tag{background:#28a05a;color:#fff}
+.pcard h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:.35rem}
+.pcard p{font-size:.77rem;color:var(--muted);line-height:1.6}
 
-.pinfo{padding:1.4rem}
-.ptag{display:inline-block;background:var(--y);color:var(--blk);font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2px;margin-bottom:.8rem}
-.pcard h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:.45rem}
-.pcard p{font-size:.82rem;color:var(--muted);line-height:1.65}
+.faqbanner{background:var(--ydim);border:1px solid var(--bdr);border-radius:2px;padding:1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+.faqbanner p{font-size:.88rem;color:var(--y);font-weight:600}
+.faqbanner small{font-size:.78rem;color:var(--muted)}
+.faqlink{background:var(--y);color:var(--blk);padding:.5rem 1rem;border-radius:3px;text-decoration:none;font-size:.78rem;font-weight:700;white-space:nowrap;letter-spacing:.05em;text-transform:uppercase;transition:background .2s}
+.faqlink:hover{background:var(--yd)}
 
-/* STANDARDS BAR */
-.stdbar{background:var(--dk2);border-top:1px solid var(--bdrdim);border-bottom:1px solid var(--bdrdim);padding:1.1rem 2rem;display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap}
-.stdb{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;transition:color .2s;cursor:default}
+/* STDBAR */
+.stdbar{background:var(--dk2);border-top:1px solid var(--bdrdim);border-bottom:1px solid var(--bdrdim);padding:1rem 2rem;display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.stdb{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;transition:color .2s;cursor:default}
 .stdb:hover{color:var(--y)}
 .stdsep{color:var(--bdrdim)}
 
-/* ABOUT / STORE */
-.about{background:var(--dk);border-top:1px solid var(--bdrdim);border-bottom:1px solid var(--bdrdim);padding:4rem 2rem}
-.about-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-
-/* =====================================================
-   รูปหน้าร้าน: เปลี่ยน src="images/store-front.jpg" เป็นรูปจริง
-   ขนาดแนะนำ: 800x600px ขึ้นไป
-   รูปในภาพที่ส่งมาเหมาะมากเลยครับ
-   ===================================================== */
-.about-img-wrap{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:var(--dk2)}
-.about-img-wrap img{width:100%;height:100%;object-fit:cover}
-.about-img-wrap::after{content:'';position:absolute;inset:0;border:2px solid var(--y);border-radius:4px;opacity:.3;pointer-events:none}
-.about-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--dim);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-.about-img-placeholder::before{content:'';width:48px;height:48px;border:2px dashed var(--dim);border-radius:4px;margin-bottom:.25rem}
-
-.about-text .b2blbl{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:.7rem}
-.about-text h2{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:1.1;color:#fff;margin-bottom:1rem}
-.about-text h2 span{color:var(--y)}
-.about-text p{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:.75rem}
-
 /* B2B */
-.b2b{background:var(--blk);border-top:3px solid var(--y);padding:4rem 2rem}
-.b2bi{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
-.b2blbl{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:.7rem}
-.b2bt h2{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:1.1;color:#fff;margin-bottom:1rem}
+.b2b{background:var(--blk);border-top:3px solid var(--y);padding:3.5rem 2rem}
+.b2bi{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
+.b2blbl{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:.6rem}
+.b2bt h2{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:1.1;color:#fff;margin-bottom:.9rem}
 .b2bt h2 span{color:var(--y)}
-.b2bt p{font-size:.9rem;color:var(--muted);max-width:440px}
-.b2bfeats{display:flex;flex-direction:column;gap:.55rem;margin-top:1.4rem}
-.b2bf{display:flex;align-items:center;gap:.7rem;font-size:.87rem;color:var(--muted)}
-.b2bf::before{content:'▸';color:var(--y);font-size:.75rem;flex-shrink:0}
+.b2bt p{font-size:.88rem;color:var(--muted);max-width:440px}
+.b2bfeats{display:flex;flex-direction:column;gap:.5rem;margin-top:1.2rem}
+.b2bf{display:flex;align-items:center;gap:.7rem;font-size:.85rem;color:var(--muted)}
+.b2bf::before{content:'▸';color:var(--y);font-size:.72rem;flex-shrink:0}
 .b2bcta{display:flex;flex-direction:column;gap:.75rem;align-items:flex-end}
+.btnp{background:var(--y);color:var(--blk);padding:.75rem 1.8rem;border-radius:3px;font-weight:700;font-size:.88rem;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,transform .15s;border:2px solid var(--y)}
+.btnp:hover{background:var(--yd);border-color:var(--yd);transform:translateY(-1px)}
+.btno{background:transparent;color:var(--tx);padding:.75rem 1.8rem;border-radius:3px;font-weight:600;font-size:.88rem;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;border:2px solid #3a3a37;transition:border-color .2s,color .2s}
+.btno:hover{border-color:var(--y);color:var(--y)}
 
-.faqbanner{background:var(--ydim);border:1px solid var(--bdr);border-radius:2px;padding:1.2rem 1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
-.faqbanner p{font-size:.9rem;color:var(--y);font-weight:600}
-.faqbanner small{font-size:.8rem;color:var(--muted)}
-.faqlink{background:var(--y);color:var(--blk);padding:.55rem 1.1rem;border-radius:3px;text-decoration:none;font-size:.8rem;font-weight:700;white-space:nowrap;letter-spacing:.05em;text-transform:uppercase;transition:background .2s}
-.faqlink:hover{background:var(--yd)}
+/* ── FLOATING CONTACT BAR ── */
+.float-bar{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:200;display:flex;flex-direction:column;gap:2px}
+.float-btn{display:flex;align-items:center;gap:0;width:48px;height:48px;overflow:hidden;border-radius:6px 0 0 6px;text-decoration:none;transition:width .3s ease,background .2s;position:relative;justify-content:flex-end}
+.float-btn:hover{width:160px}
+.float-btn-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.9rem;z-index:1}
+.float-btn-label{font-size:.75rem;font-weight:600;white-space:nowrap;overflow:hidden;max-width:0;transition:max-width .3s ease,padding .3s ease;letter-spacing:.04em}
+.float-btn:hover .float-btn-label{max-width:120px;padding-right:.6rem}
+.fb-float{background:#1877f2}
+.fb-float .float-btn-icon{color:#fff}
+.fb-float .float-btn-label{color:#fff}
+.line-float{background:#06c755}
+.line-float .float-btn-icon{color:#fff}
+.line-float .float-btn-label{color:#fff}
+.phone-float{background:#f5c400}
+.phone-float .float-btn-icon{color:#111}
+.phone-float .float-btn-label{color:#111}
 
-footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.8rem 2rem}
-.fi{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.fbrand{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:.06em}
+footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.6rem 2rem}
+.fi{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.fbrand{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;letter-spacing:.06em}
 .fbrand span{color:var(--y)}
-.fcopy{font-size:.78rem;color:var(--dim)}
+.fcopy{font-size:.76rem;color:var(--dim)}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.hero-content>*{animation:fadeUp .5s ease both}
-.eyebrow{animation-delay:.05s}.hero h1{animation-delay:.12s}.hero p{animation-delay:.2s}.hbtns{animation-delay:.28s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-@media(max-width:720px){
-  .nlinks{display:none}
-  .b2bi,.about-inner{grid-template-columns:1fr}
+@media(max-width:900px){
+  .page-body{flex-direction:column;padding:1.5rem}
+  .sidebar{width:100%;margin-left:0;margin-top:2rem}
+  .b2bi{grid-template-columns:1fr}
   .b2bcta{align-items:flex-start}
+  .nlinks .btno-nav{display:none}
+}
+@media(max-width:600px){
+  .nlinks{display:none}
   .tbar{gap:1rem}
-  .about-img-wrap{order:-1}
+  .float-btn{width:44px;height:44px}
 }
 </style>
 </head>
 <body>
 
-<!-- ==================== NAV ==================== -->
+<!-- ── FLOATING CONTACT BAR ── -->
+<div class="float-bar">
+  <!--
+    เปลี่ยน href เป็น URL Facebook Page จริง เช่น:
+    href="https://www.facebook.com/fixmartthailand"
+  -->
+  <a class="float-btn fb-float" href="https://www.facebook.com/YOUR_PAGE" target="_blank" title="Facebook Fixmart">
+    <span class="float-btn-label">Facebook</span>
+    <span class="float-btn-icon">f</span>
+  </a>
+  <!--
+    เปลี่ยน href เป็น LINE OA ของคุณ เช่น:
+    href="https://line.me/ti/p/@fixmart"
+  -->
+  <a class="float-btn line-float" href="https://line.me/ti/p/YOUR_LINE_OA" target="_blank" title="LINE Fixmart">
+    <span class="float-btn-label">LINE OA</span>
+    <span class="float-btn-icon">LINE</span>
+  </a>
+  <!--
+    เปลี่ยนเบอร์โทรเป็นเบอร์จริง เช่น:
+    href="tel:0812345678"
+  -->
+  <a class="float-btn phone-float" href="tel:0XX-XXX-XXXX" title="โทรหา Fixmart">
+    <span class="float-btn-label">โทรเลย</span>
+    <span class="float-btn-icon">TEL</span>
+  </a>
+</div>
+
+<!-- ── NAV ── -->
 <nav>
   <a class="nbrand" href="index.html">
     <div class="nhex"></div>
-    <!--
-      มีไฟล์ logo แล้ว? ลบ <div class="nhex"> ออก แล้วเพิ่ม:
-      <img class="nlogo-img" src="images/logo.png" alt="Fixmart">
-    -->
-    <span class="nlogo-fallback">FIX<span>MART</span></span>
+    <span class="nbname">FIX<span>MART</span></span>
   </a>
   <div class="nlinks">
-    <a href="index.html">หน้าแรก</a>
-    <a href="#about">เกี่ยวกับเรา</a>
+    <a href="#products">สินค้า</a>
+    <a href="#about-sidebar">ติดต่อ</a>
     <a href="faq.html">FAQ</a>
     <a href="#b2b" class="ncta">ขอใบเสนอราคา</a>
   </div>
 </nav>
 
-<!-- ==================== HERO ==================== -->
-<section class="hero">
-  <!--
-    วิธีใส่รูป Hero Banner:
-    1. เพิ่มรูปลงโฟลเดอร์ images/ ในชื่อ hero-banner.jpg
-    2. เอา comment ออกจาก tag img ด้านล่าง:
-  -->
-  <!-- <img class="hero-bg" src="images/hero-banner.jpg" alt="Fixmart store"> -->
+<!-- ══════════════════════════════════
+     VIDEO / SLIDESHOW BANNER
+     ══════════════════════════════════ -->
+<div class="video-section">
+  <div class="video-badge">Fixmart สินค้า</div>
+  <div class="video-wrapper">
 
-  <div class="hero-overlay"></div>
-  <div class="hero-stripe"></div>
-  <div class="hero-content">
-    <div class="eyebrow">Fixmart — ฟาสเทนเนอร์ครบวงจร</div>
-    <h1>น็อต สกรู<em>ทุกมาตรฐาน</em></h1>
-    <p>จำหน่ายน็อต สกรู และฟาสเทนเนอร์คุณภาพสูง หลายเกรด หลายวัสดุ รองรับทั้งลูกค้าทั่วไปและองค์กร</p>
-    <div class="hbtns">
-      <a href="#products" class="btnp">ดูสินค้าทั้งหมด</a>
-      <a href="#b2b" class="btno">สั่งซื้อแบบองค์กร</a>
-    </div>
-  </div>
-</section>
+    <!--
+      ═══════════════════════════════════════════════════════════════
+      ตัวเลือก 1 — ใช้ YouTube Video (แนะนำ)
+      1. Upload วีดีโอสินค้าขึ้น YouTube
+      2. เอา comment ออกจาก iframe ด้านล่าง
+      3. เปลี่ยน VIDEO_ID เป็น ID วีดีโอจริง เช่น dQw4w9WgXcQ
+      4. ลบ <div class="slideshow"> ออกทั้งหมด
+      ═══════════════════════════════════════════════════════════════
+    -->
+    <!--
+    <iframe
+      src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0&showinfo=0&rel=0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+    -->
 
-<!-- ==================== TRUST BAR ==================== -->
-<div class="tbar">
-  <div class="titem">มาตรฐาน DIN · ISO · JIS</div>
-  <div class="titem">สแตนเลส 304 · 316</div>
-  <div class="titem">ราคาส่ง / ใบกำกับภาษี</div>
-  <div class="titem">จัดส่งทั่วประเทศ</div>
-</div>
+    <!--
+      ═══════════════════════════════════════════════════════════════
+      ตัวเลือก 2 — Slideshow อัตโนมัติ (ใช้แทนจนกว่าจะมีวีดีโอ)
+      ใส่รูปสินค้าได้โดยเพิ่ม background-image ใน CSS
+      ═══════════════════════════════════════════════════════════════
+    -->
+    <div class="slideshow" id="slideshow">
+      <div class="slide-stripe"></div>
 
-<!-- ==================== PRODUCTS ==================== -->
-<div class="sec" id="products">
-  <div class="shead">
-    <div class="slabel">สินค้า<span>ของเรา</span></div>
-    <div class="scnt">6 หมวดหมู่</div>
-  </div>
-  <div class="pgrid">
-
-    <div class="pcard">
-      <div class="pimg-wrap">
+      <div class="slide s1 active" id="slide-0">
         <!--
-          วิธีใส่รูปสินค้า: เปลี่ยน src เป็นไฟล์รูปจริง เช่น
-          <img src="images/product-hex-bolt.jpg" alt="น็อตหัวหกเหลี่ยม">
-          แล้วลบ div.pimg-placeholder ออก
+          มีรูปสินค้าแล้ว? เพิ่ม style="background-image:url('images/slide1.jpg');background-size:cover;background-position:center"
         -->
-        <div class="pimg-placeholder">ใส่รูปน็อตหัวหกเหลี่ยม</div>
+        <div class="slide-label">น็อต สกรู<br><span>เครื่องจักรกลเกษตร</span></div>
+        <div class="slide-sub">DIN 931 · DIN 933 · Flange Bolt · Plow Bolt</div>
       </div>
-      <div class="pinfo">
-        <div class="ptag">น็อต</div>
-        <h3>น็อตหัวหกเหลี่ยม</h3>
-        <p>DIN 931/933 · M5–M36 · เหล็ก, สแตนเลส 304/316 · เกรด 4.6–10.9</p>
+
+      <div class="slide s2" id="slide-1">
+        <div class="slide-label">ฟาสเทนเนอร์<br><span>โรงงานอุตสาหกรรม</span></div>
+        <div class="slide-sub">Socket Head · Stud Bolt · Set Screw · SS304/316</div>
+      </div>
+
+      <div class="slide s3" id="slide-2">
+        <div class="slide-label">น็อตโครงสร้าง<br><span>และโซล่าเซล</span></div>
+        <div class="slide-sub">Anchor Bolt · T-Bolt · High Strength 10.9</div>
+      </div>
+
+      <div class="slide-dots">
+        <div class="dot active" onclick="goSlide(0)"></div>
+        <div class="dot" onclick="goSlide(1)"></div>
+        <div class="dot" onclick="goSlide(2)"></div>
       </div>
     </div>
 
-    <div class="pcard">
-      <div class="pimg-wrap">
-        <div class="pimg-placeholder">ใส่รูปน็อตหัวจม</div>
-      </div>
-      <div class="pinfo">
-        <div class="ptag">น็อต</div>
-        <h3>น็อตหัวจม Socket Head</h3>
-        <p>DIN 912 · M3–M24 · สแตนเลส 304 · เกรด 8.8/12.9 · พื้นผิวเรียบ</p>
-      </div>
-    </div>
-
-    <div class="pcard">
-      <div class="pimg-wrap">
-        <div class="pimg-placeholder">ใส่รูปสกรูเกลียวปล่อย</div>
-      </div>
-      <div class="pinfo">
-        <div class="ptag">สกรู</div>
-        <h3>สกรูเกลียวปล่อย</h3>
-        <p>DIN 7981/7982 · หัว Pan/Countersunk · สแตนเลส 304 · ชุบสังกะสี</p>
-      </div>
-    </div>
-
-    <div class="pcard">
-      <div class="pimg-wrap">
-        <div class="pimg-placeholder">ใส่รูปสกรูแผ่นเหล็ก</div>
-      </div>
-      <div class="pinfo">
-        <div class="ptag">สกรู</div>
-        <h3>สกรูแผ่นเหล็ก</h3>
-        <p>เกลียวหยาบ ใช้กับโลหะบาง อลูมิเนียม พลาสติก · หัวหลายแบบ</p>
-      </div>
-    </div>
-
-    <div class="pcard">
-      <div class="pimg-wrap">
-        <div class="pimg-placeholder">ใส่รูปแหวนรอง/แป้นเกลียว</div>
-      </div>
-      <div class="pinfo">
-        <div class="ptag">อุปกรณ์ประกอบ</div>
-        <h3>แหวนรอง / แป้นเกลียว</h3>
-        <p>DIN 125/127/934 · M3–M36 · สแตนเลส · เหล็กชุบสังกะสี</p>
-      </div>
-    </div>
-
-    <div class="pcard">
-      <div class="pimg-wrap">
-        <div class="pimg-placeholder">ใส่รูป Anchor Bolt</div>
-      </div>
-      <div class="pinfo">
-        <div class="ptag">พิเศษ</div>
-        <h3>อุปกรณ์ยึดพิเศษ</h3>
-        <p>Anchor Bolt · Chemical Anchor · Eye Bolt · U-Bolt · สั่งผลิตตามแบบ</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="faqbanner">
-    <div>
-      <p>ไม่แน่ใจว่าจะเลือกแบบไหน?</p>
-      <small>ดูคำแนะนำจากผู้เชี่ยวชาญในหน้า FAQ</small>
-    </div>
-    <a href="faq.html" class="faqlink">อ่าน FAQ</a>
   </div>
 </div>
 
-<!-- ==================== STANDARDS ==================== -->
+<!-- ── TRUST BAR ── -->
+<div class="tbar">
+  <div class="titem">เครื่องจักรกลเกษตร</div>
+  <div class="titem">โรงงานอุตสาหกรรม</div>
+  <div class="titem">โครงสร้าง / โซล่าเซล</div>
+  <div class="titem">ราคาส่ง / ใบกำกับภาษี</div>
+</div>
+
+<!-- ══════════════════════════════════
+     MAIN BODY: PRODUCTS + SIDEBAR
+     ══════════════════════════════════ -->
+<div class="page-body" id="products">
+  <!-- ── MAIN CONTENT ── -->
+  <div class="main-content">
+    <div class="shead">
+      <div class="slabel">เลือกสินค้า<span>ตามการใช้งาน</span></div>
+    </div>
+
+    <div class="group-tabs">
+      <div class="gtab active" onclick="switchTab(this,'agri')">เครื่องจักรกลเกษตร</div>
+      <div class="gtab" onclick="switchTab(this,'factory')">โรงงาน / เครื่องจักร</div>
+      <div class="gtab" onclick="switchTab(this,'structure')">โครงสร้าง / โซล่าเซล</div>
+    </div>
+
+    <!-- กลุ่ม 1: เกษตร -->
+    <div class="usecase-group active" id="grp-agri">
+      <div class="group-header agri">
+        <div class="group-icon">01</div>
+        <div class="group-info">
+          <h2>เครื่องจักรกลเกษตร</h2>
+          <p>รถไถ รถเกี่ยว เครื่องสูบน้ำ และอุปกรณ์การเกษตรทุกประเภท</p>
+        </div>
+      </div>
+      <div class="pgrid">
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตหัวหกเหลี่ยม</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตหัวหกเหลี่ยม 8.8</h3><p>DIN 931/933 · M8–M24 · ชุบสังกะสี HDG</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตแฟลนจ์</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตแฟลนจ์</h3><p>มีแหวนในตัว · ทนแรงสั่น · M6–M20</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป U-Bolt</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>U-Bolt / แคลมป์ท่อ</h3><p>ยึดท่อ โครงเหล็ก ชิ้นส่วนรถเกษตร</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตผานไถ</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>น็อตผานไถ Plow Bolt</h3><p>หัวจมเรียบ · ใบไถ ผาน · ทนสึกหรอสูง</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Lock Nut</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>Lock Nut / หัวน็อตกันคลาย</h3><p>ป้องกันคลายจากแรงสั่น · เพลา ล้อ</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปแหวนสปริง</div></div><div class="pinfo"><div class="ptag agri-tag">เกษตร</div><h3>แหวนสปริง / แหวนรอง</h3><p>DIN 125 / 127 · M6–M24 · ชุบสังกะสี</p></div></div>
+      </div>
+    </div>
+
+    <!-- กลุ่ม 2: โรงงาน -->
+    <div class="usecase-group" id="grp-factory">
+      <div class="group-header factory">
+        <div class="group-icon">02</div>
+        <div class="group-info">
+          <h2>โรงงาน / เครื่องจักร</h2>
+          <p>ติดตั้ง ซ่อมบำรุง และประกอบเครื่องจักรในโรงงานอุตสาหกรรม</p>
+        </div>
+      </div>
+      <div class="pgrid">
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตหัวจม</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Socket Head Cap DIN 912</h3><p>M4–M24 · เกรด 12.9 · สแตนเลส 304</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปสตัดโบลท์</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Stud Bolt DIN 976</h3><p>เกลียวสองด้าน · เหล็ก B7 / SS316</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อตสแตนเลส</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>น็อตสแตนเลส 304 / 316</h3><p>อุตสาหกรรมอาหาร เคมี ยา</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Set Screw</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>สกรูตั้งศูนย์ Set Screw</h3><p>DIN 913–916 · ยึด Hub เพลา พูลเลย์</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Threaded Insert</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>Threaded Insert</h3><p>ฝังเกลียวในพลาสติก อลู · M3–M12</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปหัวน็อต</div></div><div class="pinfo"><div class="ptag factory-tag">โรงงาน</div><h3>หัวน็อต Hex Nut DIN 934</h3><p>M4–M36 · เหล็ก / SS304 / SS316</p></div></div>
+      </div>
+    </div>
+
+    <!-- กลุ่ม 3: โครงสร้าง -->
+    <div class="usecase-group" id="grp-structure">
+      <div class="group-header structure">
+        <div class="group-icon">03</div>
+        <div class="group-info">
+          <h2>โครงสร้าง / โซล่าเซล</h2>
+          <p>โครงสร้างเหล็ก ติดตั้งแผงโซล่า หลังคา และงานก่อสร้าง</p>
+        </div>
+      </div>
+      <div class="pgrid">
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป T-Bolt Solar</div></div><div class="pinfo"><div class="ptag structure-tag">โซล่าเซล</div><h3>T-Bolt / Mid Clamp</h3><p>ยึดแผงโซล่ากับราง Aluminum Rail</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Anchor Bolt</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>Anchor Bolt / Chemical Anchor</h3><p>ยึดโครงสร้างเข้าคอนกรีต · M10–M30</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อต High Strength</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>น็อต High Strength 10.9</h3><p>ASTM A325 · M16–M30 · ชุด น็อต+นัต+แหวน</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปสกรูหลังคา</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>สกรูหลังคา Roofing Screw</h3><p>พร้อมแหวนยาง · ปลายสว่าน · เมทัลชีท</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูป Eye Bolt</div></div><div class="pinfo"><div class="ptag structure-tag">โครงสร้าง</div><h3>Eye Bolt / Hook Bolt DIN 580</h3><p>ยึดสลิง สายไฟ แขวน · M8–M24</p></div></div>
+        <div class="pcard"><div class="pimg-wrap"><div class="pimg-placeholder">ใส่รูปน็อต SS316 ชายทะเล</div></div><div class="pinfo"><div class="ptag structure-tag">โซล่าเซล</div><h3>น็อตสแตนเลส 316 ชายทะเล</h3><p>โซล่าฟาร์มชายทะเล · ความชื้นสูง</p></div></div>
+      </div>
+    </div>
+
+    <div class="faqbanner">
+      <div><p>ไม่แน่ใจว่าจะเลือกแบบไหน?</p><small>ดูคำแนะนำจากผู้เชี่ยวชาญในหน้า FAQ หรือติดต่อทีมงาน</small></div>
+      <a href="faq.html" class="faqlink">อ่าน FAQ</a>
+    </div>
+  </div>
+
+  <!-- ── SIDEBAR ── -->
+  <div class="sidebar" id="about-sidebar">
+
+    <!-- Facebook Page -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">Facebook Page</div>
+      <div class="sidebar-card-body">
+        <!--
+          วิธีใส่ Facebook Page Plugin จริง:
+          1. ไปที่ developers.facebook.com/docs/plugins/page-plugin
+          2. กรอก URL Facebook Page แล้ว Generate Code
+          3. แทนที่ div.fb-placeholder ด้วยโค้ดที่ได้
+        -->
+        <div class="fb-placeholder">
+          <div class="fb-icon">f</div>
+          <p>ใส่ Facebook Page Plugin<br>หรือลิงก์ไปยังหน้า Facebook</p>
+        </div>
+        <a href="https://www.facebook.com/YOUR_PAGE" target="_blank" style="display:block;margin-top:.75rem;background:#1877f2;color:#fff;text-align:center;padding:.6rem;border-radius:3px;font-size:.82rem;font-weight:600;text-decoration:none;letter-spacing:.04em">
+          กดถูกใจหน้าเพจ
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">ติดต่อเรา</div>
+      <div class="sidebar-card-body">
+        <!--
+          เปลี่ยนข้อมูลติดต่อให้ถูกต้อง:
+          - เบอร์โทร: แก้ href="tel:..." และข้อความ
+          - LINE OA: แก้ href="https://line.me/ti/p/@..."
+          - Facebook: แก้ href="https://www.facebook.com/..."
+        -->
+        <a class="contact-link" href="tel:0XX-XXX-XXXX">
+          <div class="contact-icon ci-phone">TEL</div>
+          <div class="contact-info">
+            <div class="contact-label">โทรศัพท์</div>
+            <div class="contact-value">0XX-XXX-XXXX</div>
+          </div>
+        </a>
+        <a class="contact-link" href="https://line.me/ti/p/YOUR_LINE_OA" target="_blank">
+          <div class="contact-icon ci-line">LINE</div>
+          <div class="contact-info">
+            <div class="contact-label">LINE OA</div>
+            <div class="contact-value">@fixmart</div>
+          </div>
+        </a>
+        <a class="contact-link" href="https://www.facebook.com/YOUR_PAGE" target="_blank">
+          <div class="contact-icon ci-fb">FB</div>
+          <div class="contact-info">
+            <div class="contact-label">Facebook</div>
+            <div class="contact-value">Fixmart Thailand</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Business Hours -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">เวลาทำการ</div>
+      <div class="sidebar-card-body">
+        <div class="hours-row"><span class="hours-day">จันทร์ – ศุกร์</span><span class="hours-time">08:00 – 17:00</span></div>
+        <div class="hours-row"><span class="hours-day">เสาร์</span><span class="hours-time">08:00 – 12:00</span></div>
+        <div class="hours-row"><span class="hours-day">อาทิตย์</span><span class="hours-closed">ปิดทำการ</span></div>
+      </div>
+    </div>
+
+    <!-- ขอใบเสนอราคา -->
+    <a href="#b2b" class="btnp" style="display:block;text-align:center;margin-bottom:1rem">ขอใบเสนอราคา</a>
+    <a href="faq.html" class="btno" style="display:block;text-align:center">คำถามที่พบบ่อย</a>
+
+  </div>
+</div>
+
+<!-- STANDARDS BAR -->
 <div class="stdbar">
   <span class="stdb">DIN</span><span class="stdsep">/</span>
   <span class="stdb">ISO</span><span class="stdsep">/</span>
@@ -311,34 +481,10 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.8rem 2r
   <span class="stdb">SS316</span><span class="stdsep">/</span>
   <span class="stdb">Grade 8.8</span><span class="stdsep">/</span>
   <span class="stdb">Grade 10.9</span><span class="stdsep">/</span>
-  <span class="stdb">Grade 12.9</span>
+  <span class="stdb">HDG</span>
 </div>
 
-<!-- ==================== ABOUT / STORE ==================== -->
-<div class="about" id="about">
-  <div class="about-inner">
-
-    <div class="about-img-wrap">
-      <!--
-        วิธีใส่รูปหน้าร้าน:
-        <img src="images/store-front.jpg" alt="ร้าน Fixmart">
-        แล้วลบ div.about-img-placeholder ออก
-        รูปจากภาพที่ส่งมาเหมาะมากเลยครับ ขนาดแนะนำ 800x600px
-      -->
-      <div class="about-img-placeholder">ใส่รูปหน้าร้าน</div>
-    </div>
-
-    <div class="about-text">
-      <div class="b2blbl">เกี่ยวกับเรา</div>
-      <h2>ร้าน<span>Fixmart</span><br>ฟาสเทนเนอร์ครบวงจร</h2>
-      <p>Fixmart จำหน่ายน็อต สกรู และฟาสเทนเนอร์คุณภาพสูงครบทุกประเภท รองรับทั้งลูกค้าทั่วไป ช่าง ผู้รับเหมา และลูกค้าอุตสาหกรรม</p>
-      <p>สินค้าครบทุกมาตรฐาน DIN · ISO · JIS หลายเกรด หลายวัสดุ ทีมงานพร้อมให้คำปรึกษาด้านเทคนิคฟรี</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- ==================== B2B ==================== -->
+<!-- B2B -->
 <div class="b2b" id="b2b">
   <div class="b2bi">
     <div class="b2bt">
@@ -353,7 +499,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.8rem 2r
       </div>
     </div>
     <div class="b2bcta">
-      <a href="https://line.me/ti/p/fixmart" class="btnp">ติดต่อขอใบเสนอราคา</a>
+      <a href="https://line.me/ti/p/YOUR_LINE_OA" class="btnp" target="_blank">ติดต่อขอใบเสนอราคา</a>
       <a href="faq.html" class="btno">ดูคำถามที่พบบ่อย</a>
     </div>
   </div>
@@ -366,5 +512,25 @@ footer{background:var(--dk);border-top:1px solid var(--bdrdim);padding:1.8rem 2r
   </div>
 </footer>
 
+<script>
+/* ── Tab switcher ── */
+function switchTab(el,group){
+  document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.usecase-group').forEach(g=>g.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('grp-'+group).classList.add('active');
+}
+
+/* ── Slideshow ── */
+let cur=0;const total=3;
+function goSlide(n){
+  document.getElementById('slide-'+cur).classList.remove('active');
+  document.querySelectorAll('.dot')[cur].classList.remove('active');
+  cur=n;
+  document.getElementById('slide-'+cur).classList.add('active');
+  document.querySelectorAll('.dot')[cur].classList.add('active');
+}
+setInterval(()=>goSlide((cur+1)%total),4000);
+</script>
 </body>
 </html>
